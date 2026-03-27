@@ -1,4 +1,3 @@
-const caixaPrincipal = document.querySelector(".caixa-principal");
 const caixaPerguntas = document.querySelector(".caixa-perguntas");
 const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const caixaResultado = document.querySelector(".caixa-resultado");
@@ -10,11 +9,11 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Isso é assustador!",
-                afirmacao: "Gabriel inicialmente ficou preocupado com os possíveis impactos negativos dessa tecnologia. "
+                afirmacao: "No início ficou com medo do que essa tecnologia pode fazer. "
             },
             {
                 texto: "Isso é maravilhoso!",
-                afirmacao: "Gabriel ficou fascinado e quis explorar todas as possibilidades da IA no seu dia a dia."
+                afirmacao: "Quis saber como usar IA no seu dia a dia."
             }
         ]
     },
@@ -23,11 +22,11 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Utiliza uma ferramenta de busca na internet que utiliza IA para que ela ajude a encontrar informações relevantes para o trabalho e explique numa linguagem que facilite o entendimento.",
-                afirmacao: "Gabriel aprendeu a usar a IA como ferramenta de pesquisa, otimizando seu tempo e aprofundando seu conhecimento."
+                afirmacao: "Conseguiu utilizar a IA para buscar informações úteis."
             },
             {
                 texto: "Escreve o trabalho com base nas conversas que teve com colegas, algumas pesquisas na internet e conhecimentos próprios sobre o tema.",
-                afirmacao: "Gabriel preferiu usar seus próprios recursos e conhecimentos, desenvolvendo suas habilidades de pesquisa e análise crítica."
+                afirmacao: "Sentiu mais facilidade em utilizar seus próprios recursos para escrever seu trabalho."
             }
         ]
     },
@@ -36,11 +35,11 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Defende a ideia de que a IA pode criar novas oportunidades de emprego e melhorar habilidades humanas.",
-                afirmacao: "Gabriel se tornou um entusiasta da inovação, buscando constantemente novas formas de integrar IA de maneira ética e produtiva."
+                afirmacao: "Vem impulsionando a inovação na área de IA e luta para abrir novos caminhos profissionais com IA."
             },
             {
                 texto: "Me preocupo com as pessoas que perderão seus empregos para máquinas e defendem a importância de proteger os trabalhadores.",
-                afirmacao: "Gabriel desenvolveu uma consciência social e criou um grupo de estudos para discutir o uso ético da IA e a proteção dos trabalhadores."
+                afirmacao: "Sua preocupação com as pessoas motivou a criar um grupo de estudos entre trabalhadores para discutir meios de utilização de IA de forma ética."
             }
         ]
     },
@@ -48,28 +47,28 @@ const perguntas = [
         enunciado: "Ao final da discussão, você precisou criar uma imagem no computador que representasse o que pensa sobre IA. E agora?",
         alternativas: [
             {
-                texto: "Criar uma imagem utilizando uma plataforma de design tradicional como o Paint ou Photoshop.",
-                afirmacao: "Gabriel compartilhou seus conhecimentos de design digital com iniciantes, mostrando que ferramentas tradicionais ainda têm seu valor."
+                texto: "Criar uma imagem utilizando uma plataforma de design como o Paint.",
+                afirmacao: "Notou também que muitas pessoas não sabem ainda utilizar as ferramentas tradicionais e decidiu compartilhar seus conhecimentos de design utilizando ferramentas de pintura digital para iniciantes."
             },
             {
                 texto: "Criar uma imagem utilizando um gerador de imagem de IA.",
-                afirmacao: "Gabriel dominou as ferramentas de geração de imagem por IA e agora ajuda outras pessoas a expressarem sua criatividade digitalmente."
+                afirmacao: "Acelerou o processo de criação de trabalhos utilizando geradores de imagem e agora consegue ensinar pessoas que sentem dificuldades em desenhar manualmente como utilizar também!"
             }
         ]
     },
     {
-        enunciado: "Você tem um trabalho em grupo de biologia para entregar na semana seguinte, o andamento do trabalho está um pouco atrasado e uma pessoa do seu grupo decidiu fazer com ajuda da IA. O problema é que o trabalho está totalmente igual ao do chat. O que você faz?",
+        enunciado: "Você tem um trabalho em grupo de biologia para entregar na semana seguinte, o andamento do trabalho está um pouco atrasado e uma pessoa do seu grupo decidiu fazer com ajuda da IA. O problema é que o trabalho está totalmente igual ao do chat. O que você faz? ",
         alternativas: [
             {
-                texto: "Aceita usar o texto gerado pela IA como trabalho final, pois foi uma contribuição válida.",
-                afirmacao: "Gabriel aprendeu uma lição importante sobre os limites da IA e agora busca equilíbrio entre tecnologia e desenvolvimento pessoal."
+                texto: "Escrever comandos para o chat é uma forma de contribuir com o trabalho, por isso não é um problema utilizar o texto inteiro.",
+                afirmacao: "Infelizmente passou a utilizar a IA para fazer todas suas tarefas e agora se sente dependente da IA para tudo."
             },
             {
-                texto: "Revisa o trabalho, adiciona perspectivas pessoais e discute com o grupo sobre a importância do pensamento crítico.",
-                afirmacao: "Gabriel se tornou um defensor do uso consciente da IA, sempre revisando e personalizando os resultados gerados pelas máquinas."
+                texto: "O chat pode ser uma tecnologia muito avançada, mas é preciso manter a atenção pois toda máquina erra, por isso revisar o trabalho e contribuir com as perspectivas pessoais é essencial.",
+                afirmacao: "Percebeu que toda IA reproduz orientações baseadas na empresa que programou e muito do que o chat escrevia não refletia o que pensava e por isso sabe que os textos gerados pela IA devem servir como auxílio e não resultado final. "
             }
         ]
-    }
+    },
 ];
 
 let atual = 0;
@@ -83,7 +82,7 @@ function mostraPergunta() {
     }
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
-    caixaAlternativas.textContent = "";
+    caixaAlternativas.innerHTML = "";
     mostraAlternativas();
 }
 
@@ -104,32 +103,19 @@ function respostaSelecionada(opcaoSelecionada) {
 }
 
 function mostraResultado() {
-    caixaPerguntas.textContent = "🌟 Em 2049, Gabriel... 🌟";
-    textoResultado.textContent = historiaFinal + "\n\n✨ A jornada de Gabriel mostra que o futuro da IA está nas mãos de quem sabe usá-la com sabedoria, ética e criatividade! ✨";
-    caixaAlternativas.textContent = "";
-    
-    // Adiciona um botão para reiniciar o quiz
-    const botaoReiniciar = document.createElement("button");
-    botaoReiniciar.textContent = "🔄 Recomeçar Jornada";
-    botaoReiniciar.style.marginTop = "20px";
-    botaoReiniciar.addEventListener("click", () => {
-        atual = 0;
-        historiaFinal = "";
-        mostraPergunta();
-        caixaResultado.style.display = "none";
-        caixaPerguntas.style.display = "block";
-        caixaAlternativas.style.display = "flex";
-    });
-    caixaAlternativas.appendChild(botaoReiniciar);
-    caixaResultado.style.display = "block";
+    caixaPerguntas.textContent = "Em 2049...";
+    textoResultado.textContent = historiaFinal;
+    caixaAlternativas.innerHTML = "";
 }
 
-// Relógio Digital
+mostraPergunta();
+
+// Relógio
 const horas = document.getElementById('horas');
 const minutos = document.getElementById('minutos');
 const segundos = document.getElementById('segundos');
 
-function atualizarRelogio() {
+function updateClock() {
     let dateToday = new Date();
     let hr = dateToday.getHours();
     let min = dateToday.getMinutes();
@@ -144,8 +130,5 @@ function atualizarRelogio() {
     segundos.textContent = s;
 }
 
-setInterval(atualizarRelogio, 1000);
-atualizarRelogio();
-
-// Iniciar o quiz
-mostraPergunta();
+setInterval(updateClock, 1000);
+updateClock();
